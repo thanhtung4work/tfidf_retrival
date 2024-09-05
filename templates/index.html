@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Retrieval</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Document Retrieval Application</h1>
+
+    <!-- File Upload Form -->
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <h2>Upload Document</h2>
+        <input type="file" name="file" accept=".pdf" required>
+        <button type="submit">Upload</button>
+    </form>
+
+    <!-- Query Form -->
+    <form action="/extract" method="post">
+        <h2>Extract Text</h2>
+        <input type="text" name="query" placeholder="Enter query..." required>
+        <button type="submit">Extract</button>
+    </form>
+
+    <footer>
+        <p>© 2024 Document Retrieval App</p>
+    </footer>
+</body>
+</html>

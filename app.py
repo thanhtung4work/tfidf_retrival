@@ -1,6 +1,6 @@
 import os
 
-from   flask import Flask, request, jsonify
+from   flask import Flask, request, jsonify, render_template
 from   werkzeug.utils import secure_filename
 
 from   utils import save_uploaded_file, extract_document
@@ -15,6 +15,13 @@ app.config['ALLOWED_EXTENSIONS'] = {'pdf'}
 # Helper function to check allowed file types
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in app.config['ALLOWED_EXTENSIONS']
+
+
+# Home route to display upload and query forms
+@app.route('/')
+def index():
+    return render_template('index.html')
+
 
 # Route to upload a document
 @app.route('/upload', methods=['POST'])
