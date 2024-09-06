@@ -50,5 +50,15 @@ def extract_text():
 
     return jsonify(sim_index), 200
 
+# Route to list all files in the storage
+@app.route('list', methods=["GET"])
+def list_files():
+    try:
+        files = os.listdir(app.config["UPLOAD_FOLDER"])
+        pdf_files = [f for f in files if allowed_file(f)]
+        return jsonify({"documents": pdf_files}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
 if __name__ == '__main__':
     app.run(debug=True)
