@@ -1,6 +1,6 @@
 import os
 
-from   flask import Flask, request, jsonify, render_template
+from   flask import Flask, request, jsonify, render_template, send_from_directory
 from   werkzeug.utils import secure_filename
 
 from   utils import save_uploaded_file, extract_document
@@ -51,12 +51,35 @@ def extract_text():
     return jsonify(sim_index), 200
 
 # Route to list all files in the storage
-@app.route('list', methods=["GET"])
+@app.route('/list', methods=["GET"])
 def list_files():
     try:
         files = os.listdir(app.config["UPLOAD_FOLDER"])
         pdf_files = [f for f in files if allowed_file(f)]
         return jsonify({"documents": pdf_files}), 200
+    except Exception as e:
+        return jsonify({"error": str(e)}), 500
+
+# Route to download a file
+@app.route('/download/<filename>', methods=['GET'])
+def download_file(filename):
+    print("downloading...")
+    try:
+        # Serve the file from the upload folder
+        return send_from_directory(app.config['UPLOAD_FOLDER'], filename, as_attachment=True)
+    except FileNotFoundError:
+        return jsonify({"error": "File not found."}), 404
+    
+# Route to remove a file
+@app.route('/remove/<filename>', methods=['DELETE'])
+def remove_file(filename):
+    try:
+        file_path = os.path.join(app.config['UPLOAD_FOLDER'], filename)
+        if os.path.exists(file_path) and allowed_file(filename):
+            os.remove(file_path)
+            return jsonify({"message": f"File {filename} removed successfully."}), 200
+        else:
+            return jsonify({"error": "File not found or invalid file type."}), 404
     except Exception as e:
         return jsonify({"error": str(e)}), 500
 

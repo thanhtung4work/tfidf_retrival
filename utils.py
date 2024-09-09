@@ -36,7 +36,7 @@ def extract_document(query, document_storage="documents"):
         documents.append(text)
 
     # Create bag of word
-    vectorizer = TfidfVectorizer()
+    vectorizer = TfidfVectorizer(ngram_range=(1, 3), stop_words=["english"])
     tfidf_matrix = vectorizer.fit_transform(documents)
 
     # Create word vector
@@ -46,4 +46,5 @@ def extract_document(query, document_storage="documents"):
     sim_index = {}
     for file, score in zip(files, similarities):
         sim_index[file] = score
+    sim_index = dict(sorted(sim_index.items(), key=lambda item: item[1], reverse=True))
     return sim_index

@@ -19,10 +19,24 @@ input[type=text], input[type=file], select, textarea {
 
 /* Style the submit button with a specific background color etc */
 button {
-    background-color: #04AA6D;
+    background-color: #8aaea1;
     color: white;
-    padding: 12px 20px;
+    padding: 4px 8px;
     border: none;
     border-radius: 4px;
     cursor: pointer;
-  }
+}
+.negative-btn {
+    background-color: tomato;
+}
+
+#fileList {
+    list-style-type: none;
+}
+
+#fileList li{
+    padding: 4px;
+}
+#fileList li button {
+    margin-right: 4px;
+}
