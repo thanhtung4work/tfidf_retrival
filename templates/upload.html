@@ -1,0 +1,20 @@
+{% extends 'index.html' %}
+{% set active_page = "index" %}
+
+{% block content %}
+<!-- File Upload Form -->
+<div id="filesPanel">
+    <div>
+        <h2>Upload document</h2>
+        <input type="file" name="fileInput" id="fileInput" accept=".pdf">
+        <button onclick="uploadDocument()">Upload</button>
+        <p id="uploadStatus"></p>
+    </div>
+    
+    <!-- List of Files -->
+    <div>
+        <h2>Uploaded file</h2>
+        <ul id="fileList"></ul>
+    </div> 
+</div>
+{% endblock %}

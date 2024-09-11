@@ -1,0 +1,14 @@
+{% extends 'index.html' %}
+{% set active_page = "extract" %}
+
+{% block content %}
+<!-- Query Form -->
+<div id="extractPanel">
+    <h2>Extract Text</h2>
+    <input type="text" id="queryInput" placeholder="Enter query...">
+    <button onclick="extractText()">Extract</button>
+    <p id="extractStatus"></p>
+
+    <ul id="resultsList"></ul>
+</div>
+{% endblock %}

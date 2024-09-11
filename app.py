@@ -2,10 +2,12 @@ import os
 
 from   flask import Flask, request, jsonify, render_template, send_from_directory
 from   werkzeug.utils import secure_filename
+from   prometheus_flask_exporter import PrometheusMetrics
 
 from   utils import save_uploaded_file, extract_document
 
 app = Flask(__name__)
+metrics = PrometheusMetrics(app, '/metrics')
 
 # Configure upload folder
 UPLOAD_FOLDER = 'documents/'
@@ -19,9 +21,13 @@ def allowed_file(filename):
 
 # Home route to display upload and query forms
 @app.route('/')
+@app.route('/upload', methods=['GET'])
 def index():
-    return render_template('index.html')
+    return render_template('upload.html')
 
+@app.route('/extract', methods=['GET'])
+def extract():
+    return render_template("extract.html")
 
 # Route to upload a document
 @app.route('/upload', methods=['POST'])
@@ -84,4 +90,7 @@ def remove_file(filename):
         return jsonify({"error": str(e)}), 500
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(
+        debug=False,
+        host="0.0.0.0"
+    )

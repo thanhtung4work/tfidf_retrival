@@ -12,31 +12,16 @@
     </script>
 </head>
 <body>
+    {% set active_page = active_page|default('index') -%}
+    
+    <div class="topnav">
+        <a href="/" {% if active_page == "index" %} class="active"{% endif %}>Upload File</a>
+        <a href="/extract" {% if active_page == "extract" %} class="active"{% endif %}>Extract</a>
+    </div>
+
     <h1>Document Retrieval Application</h1>
 
-    <!-- File Upload Form -->
-    <div>
-        <h2>Upload document</h2>
-        <input type="file" name="fileInput" id="fileInput" accept=".pdf">
-        <button onclick="uploadDocument()">Upload</button>
-        <p id="uploadStatus"></p>
-    </div>
-    
-    <!-- List of Files -->
-    <div>
-        <h2>Uploaded file</h2>
-        <ul id="fileList"></ul>
-    </div> 
-
-    <!-- Query Form -->
-    <div>
-        <h2>Extract Text</h2>
-        <input type="text" id="queryInput" placeholder="Enter query...">
-        <button onclick="extractText()">Extract</button>
-        <p id="extractStatus"></p>
-
-        <ul id="resultsList"></ul>
-    </div>
+    {% block content %}{% endblock %}
 
     <footer>
         <p>© 2024 Document Retrieval App</p>

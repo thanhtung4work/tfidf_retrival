@@ -19,7 +19,7 @@ def save_uploaded_file(file, upload_folder):
     return file_path
 
 
-def extract_document(query, document_storage="documents"):
+def extract_document(query: str, document_storage: str="documents"):
     documents = []
     # Read documents in storage
     files = os.listdir(document_storage)
@@ -40,6 +40,10 @@ def extract_document(query, document_storage="documents"):
     tfidf_matrix = vectorizer.fit_transform(documents)
 
     # Create word vector
+    query = preprocessing.to_lower(query)
+    query = preprocessing.remove_whitespace(query)
+    query = preprocessing.remove_punc(query)
+    
     query_vec = vectorizer.transform([query])
     similarities = cosine_similarity(query_vec, tfidf_matrix).flatten()
 

@@ -59,9 +59,22 @@ function extractText() {
             extractStatus.textContent = `Error: ${data.error}`
         } else {
             extractStatus.textContent = 'Extraction completed successfully. See results below:'
-            for (const [file, score] of Object.entries(data)) {
+            // Object.entries(data).sort(([,a],[,b]) => a-b)
+            for (const [file, score] of Object.entries(data).sort(([,a],[,b]) => a-b).reverse()) {
                 const li = document.createElement('li')
-                li.textContent = `${file}: ${score.toFixed(4)}`
+                
+                // Download button
+                const downloadButton = document.createElement('button')
+                downloadButton.textContent = 'Download'
+                downloadButton.onclick = () => downloadFile(file)
+                
+                li.appendChild(downloadButton)
+                
+                //Text content
+                const textSpan = document.createElement('span')
+                textSpan.textContent = `[${score.toFixed(4)}] ${file}`
+                li.appendChild(textSpan)
+
                 resultsList.appendChild(li)
             }
         }

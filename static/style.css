@@ -1,7 +1,6 @@
 body {
     font-family: Arial, sans-serif;
-    margin: 20px;
-    padding: 20px;
+    padding: 0 20px;
     max-width: 800px;
     margin: auto;
 }
@@ -25,18 +24,44 @@ button {
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    font-weight: bold;
 }
 .negative-btn {
     background-color: tomato;
 }
 
-#fileList {
+#fileList, #resultsList {
     list-style-type: none;
 }
 
-#fileList li{
+#fileList li, #resultsList li{
     padding: 4px;
 }
-#fileList li button {
+#fileList li button, #resultsList li button {
     margin-right: 4px;
+}
+
+.topnav {
+    margin: 0;
+    background-color: #333;
+    overflow: hidden;
+}
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px;
+    text-decoration: none;
+    font-size: 18px;
+
+    border: 0;
+    background: none;
+    box-shadow: none;
+    border-radius: 0px;
+}
+
+.topnav a.active {
+    background-color: #8aaea1;
+    color: white;
 }
