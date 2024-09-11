@@ -36,7 +36,7 @@ def extract_document(query: str, document_storage: str="documents"):
         documents.append(text)
 
     # Create bag of word
-    vectorizer = TfidfVectorizer(ngram_range=(1, 3), stop_words=["english"])
+    vectorizer = TfidfVectorizer(ngram_range=(1, 2), stop_words=["english"])
     tfidf_matrix = vectorizer.fit_transform(documents)
 
     # Create word vector

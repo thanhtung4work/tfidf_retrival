@@ -7,6 +7,8 @@ Jinja2==3.1.4
 joblib==1.4.2
 MarkupSafe==2.1.5
 numpy==2.1.0
+prometheus_client==0.20.0
+prometheus_flask_exporter==0.23.1
 PyPDF2==3.0.1
 scikit-learn==1.5.1
 scipy==1.14.1
