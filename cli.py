@@ -7,7 +7,7 @@ from   PyPDF2 import PdfReader
 from   sklearn.feature_extraction.text import TfidfVectorizer
 from   sklearn.metrics.pairwise import cosine_similarity
 
-import preprocessing
+import utils.preprocessing as preprocessing
 from   utils import save_uploaded_file, extract_document
 
 # Configure upload folder
