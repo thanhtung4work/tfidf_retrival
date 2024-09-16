@@ -6,7 +6,7 @@ from   flask import (
     session, url_for, jsonify
 )
 
-from   utils import extract_document
+from   ..utils import extract_document
 
 bp = Blueprint('extract', __name__, url_prefix='/extract')
 

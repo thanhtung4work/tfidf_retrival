@@ -1,7 +1,13 @@
+@import "_float.css";
+
+*, *::after, *::before {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: Arial, sans-serif;
-    padding: 0 20px;
-    max-width: 800px;
     margin: auto;
 }
 
@@ -31,12 +37,14 @@ button {
 }
 
 #fileList, #resultsList {
+    padding: 0;
     list-style-type: none;
 }
 
 #fileList li, #resultsList li{
     padding: 4px;
 }
+
 #fileList li button, #resultsList li button {
     margin-right: 4px;
 }
@@ -64,4 +72,12 @@ button {
 .topnav a.active {
     background-color: #8aaea1;
     color: white;
+}
+
+.content {padding: 0 10px}
+
+@media only screen and (min-width: 769px) {
+    body {
+        max-width: 70vw;
+    }
 }

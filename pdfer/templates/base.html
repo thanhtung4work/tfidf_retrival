@@ -19,12 +19,9 @@
         <a href="/extract" {% if active_page == "extract" %} class="active"{% endif %}>Extract</a>
     </div>
 
-    <h1>Document Retrieval Application</h1>
-
-    {% block content %}{% endblock %}
-
-    <footer>
-        <p>© 2024 Document Retrieval App</p>
-    </footer>
+    <div class="content">
+        <h1>Document Retrieval Application</h1>
+        {% block content %}{% endblock %}
+    </div>
 </body>
 </html>

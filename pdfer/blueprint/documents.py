@@ -9,7 +9,7 @@ from   flask import (
 )
 from   werkzeug.utils import secure_filename
 
-from   utils import extract_document, save_uploaded_file
+from   ..utils import extract_document, save_uploaded_file
 
 
 bp = Blueprint('documents', __name__, url_prefix='/documents')

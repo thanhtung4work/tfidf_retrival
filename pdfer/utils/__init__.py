@@ -5,7 +5,7 @@ from   PyPDF2 import PdfReader
 from   sklearn.feature_extraction.text import TfidfVectorizer
 from   sklearn.metrics.pairwise import cosine_similarity
 
-import utils.preprocessing as preprocessing
+from   . import preprocessing
 
 
 def save_uploaded_file(file, upload_folder):
@@ -52,8 +52,3 @@ def extract_document(query: str, document_storage: str="documents"):
         sim_index[file] = score
     sim_index = dict(sorted(sim_index.items(), key=lambda item: item[1], reverse=True))
     return sim_index
-
-
-# Helper function to check allowed file types
-def allowed_file(filename):
-    return '.' in filename and filename.rsplit('.', 1)[1].lower() in {'pdf'}

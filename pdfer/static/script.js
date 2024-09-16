@@ -97,13 +97,18 @@ function listFiles() {
         else {
             data.documents.forEach(file => {
                 const li = document.createElement('li')
+                for (const item of ['card', 'col-3']){
+                    li.classList.add(item)
+                }
                 
+                const div = document.createElement('div')
+            
                 // Download button
                 const downloadButton = document.createElement('button')
                 downloadButton.textContent = 'Download'
                 downloadButton.onclick = () => downloadFile(file)
                 
-                li.appendChild(downloadButton)
+                div.appendChild(downloadButton)
 
                 // Remove button
                 const removeButton = document.createElement('button')
@@ -111,13 +116,14 @@ function listFiles() {
                 removeButton.textContent = 'Remove'
                 removeButton.onclick = () => removeFile(file)
 
-                li.appendChild(removeButton)
+                div.appendChild(removeButton)
                 
                 // Text content
                 const textTag = document.createElement("span")
                 textTag.textContent = file
 
                 li.appendChild(textTag)
+                li.appendChild(div)
 
                 fileList.appendChild(li)
             });

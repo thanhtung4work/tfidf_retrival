@@ -2,6 +2,6 @@ global:
   scrape_interval: 5s  # Scrape every 5 seconds
 
 scrape_configs:
-  - job_name: 'flask_app'
+  - job_name: 'pdfer'
     static_configs:
-      - targets: ['flask_app:5000']  # Targets the Flask app service
+      - targets: ['pdfer:5000']  # Targets the Flask app service

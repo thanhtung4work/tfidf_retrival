@@ -1,10 +1,11 @@
 import os
 
 from   flask import Flask, render_template
-
+from   prometheus_flask_exporter import PrometheusMetrics
 
 def create_app(test_config=None):
     app = Flask(__name__, instance_relative_config=True)
+    metrics = PrometheusMetrics(app)
 
     if test_config is None:
         # load the instance config, if it exists, when not testing
