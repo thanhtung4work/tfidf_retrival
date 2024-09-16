@@ -14,7 +14,7 @@ function uploadDocument() {
     formData.append("file", file)
 
     // Call upload API
-    fetch("/upload", {
+    fetch("/documents/upload", {
         method: "POST",
         body: formData
     })
@@ -88,7 +88,7 @@ function listFiles() {
     const fileList = document.getElementById("fileList")
     fileList.innerHTML = ""
 
-    fetch("/list")
+    fetch("/documents", {method: "POST"})
     .then(response => response.json())
     .then(data => {
         if (data.error) {
@@ -130,12 +130,12 @@ function listFiles() {
 
 // Function to download a file
 function downloadFile(filename) {
-    window.location.href = `/download/${filename}`;
+    window.location.href = `/documents/download/${filename}`;
 }
 
 // Function to remove file
 function removeFile(filename) {
-    fetch(`/remove/${filename}`, {
+    fetch(`/documents/remove/${filename}`, {
         method: "DELETE"
     })
     .then(response => response.json())
