@@ -97,7 +97,7 @@ function listFiles() {
         else {
             data.documents.forEach(file => {
                 const li = document.createElement('li')
-                for (const item of ['card', 'col-3']){
+                for (const item of ['card']){
                     li.classList.add(item)
                 }
                 
