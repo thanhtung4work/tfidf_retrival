@@ -5,3 +5,13 @@
     align-items: center;
     gap: 8px;
 }
+
+.flex-container > * {
+    flex: 25%
+}
+
+@media (max-width: 800px) {
+    .flex-container > * {
+        flex: 100%
+    }
+  }

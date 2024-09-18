@@ -1,5 +1,7 @@
-@import "_float.css";
-@import "_flex.css";
+@import "substyle/_float.css";
+@import "substyle/_flex.css";
+@import "substyle/_padding.css";
+@import "substyle/_margin.css";
 
 *, *::after, *::before {
     padding: 0;
@@ -38,12 +40,7 @@ button {
 }
 
 #fileList, #resultsList {
-    padding: 0;
     list-style-type: none;
-}
-
-#fileList li, #resultsList li{
-    padding: 4px;
 }
 
 #fileList li button, #resultsList li button {
@@ -78,7 +75,6 @@ button {
 .content, .content * {padding: 4px}
 
 .card {
-    padding: 8px !important;
     background-color: rgb(250, 250, 250);
     box-shadow: 4px 4px #8aaea1;
 }

@@ -4,7 +4,7 @@
 {% block content %}
 <!-- File Upload Form -->
 <div id="filesPanel">
-    <div>
+    <div class="card p-2">
         <h2>Upload document</h2>
         <input type="file" name="fileInput" id="fileInput" accept=".pdf">
         <button onclick="uploadDocument()">Upload</button>
@@ -13,7 +13,7 @@
     
     <!-- List of Files -->
     <div>
-        <h2>Uploaded file</h2>
+        <h2 class="p-2 ">Uploaded file</h2>
         <ul id="fileList" class="flex-container"></ul>
     </div> 
 </div>

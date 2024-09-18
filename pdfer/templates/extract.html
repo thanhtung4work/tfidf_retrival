@@ -4,10 +4,12 @@
 {% block content %}
 <!-- Query Form -->
 <div id="extractPanel">
-    <h2>Extract Text</h2>
-    <input type="text" id="queryInput" placeholder="Enter query...">
-    <button onclick="extractText()">Extract</button>
-    <p id="extractStatus"></p>
+    <div class="card p-2">
+        <h2>Extract Text</h2>
+        <input type="text" id="queryInput" placeholder="Enter query...">
+        <button onclick="extractText()">Extract</button>
+    </div>
+    <p id="extractStatus" class="m-1"></p>
 
     <ul id="resultsList"></ul>
 </div>
