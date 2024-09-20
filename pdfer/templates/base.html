@@ -13,6 +13,10 @@
 </head>
 <body>
     {% set active_page = active_page|default('index') -%}
+
+    <div class="content"></div>
+        <h1 class="p-2 text-center">Document Retrieval Application</h1>
+    </div>
     
     <div class="topnav">
         <a href="/documents" {% if active_page == "index" %} class="active"{% endif %}>Upload File</a>
@@ -20,7 +24,6 @@
     </div>
 
     <div class="content">
-        <h1 class="p-2">Document Retrieval Application</h1>
         {% block content %}{% endblock %}
     </div>
 </body>

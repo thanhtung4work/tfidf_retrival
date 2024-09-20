@@ -2,6 +2,7 @@
 @import "substyle/_flex.css";
 @import "substyle/_padding.css";
 @import "substyle/_margin.css";
+@import "substyle/_typograpy.css";
 
 *, *::after, *::before {
     padding: 0;
@@ -52,7 +53,6 @@ button {
     background-color: #333;
     overflow: hidden;
 }
-
 .topnav a {
     float: left;
     color: #f2f2f2;
