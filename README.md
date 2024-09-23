@@ -32,4 +32,17 @@ This is a simple document retrieval application built with Flask that allows use
 1. Clone the repository:
 
    ```bash
-   git clone
+   git clone https://github.com/thanhtung4work/tfidf_retrival.git
+   ```
+
+2. Run docker
+
+   ```
+   docker compose up
+   ```
+
+## Demo images
+
+![Screenshot1](assets/pdf_app_documents.png)
+
+![Screenshot2](assets/pdf_app_extract.png)
